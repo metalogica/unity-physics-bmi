@@ -29,11 +29,12 @@ public class PhysicsPropertyManager : MonoBehaviour
     public AudioController audioController;
    
     bool timeToggle;
-    bool gravityToggle;
+    public bool gravityToggle;
     
     float defaultTimeScale;
     float defaultFixedDeltaTime;
     Vector3 defaultGravity;
+    public bool mentalCommandActivated;
 
     void Start()
     {
@@ -87,7 +88,7 @@ public class PhysicsPropertyManager : MonoBehaviour
         }
 
         //Check to see if the gravity key has been pressed and released
-        if (Input.GetKeyUp(gravityKey))
+        if (Input.GetKeyUp(gravityKey) || mentalCommandActivated)
         {
             //Flip the toggle and update the gravity value
             gravityToggle = !gravityToggle;
